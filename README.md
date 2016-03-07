@@ -1,7 +1,7 @@
 # Fractal Presentation
 You can view the PDF here but it cannot be downloaded and the links don't work. 
 You can access downloadable/interactive version of the PDF visit 
-<benkushigian.com/misc/FractalPres/FractalPres.pdf>
+<http://benkushigian.com/misc/FractalPres/FractalPres.pdf>
 ## Creating
 Included is a Makefile - on *nix systems you navigate to the home directory and
 enter
