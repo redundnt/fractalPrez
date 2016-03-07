@@ -17,9 +17,9 @@
 % href setup
 \hypersetup{pdfborder={0 0 0}, urlcolor=blue, linkcolor=blue, colorlinks=true}
 \begin{document}
-\title{Fractal Geometry and Computer-Generated Art}
-\author{Ben Kushigian}
-\date{Date}
+\title{Infinity and Self Reference in Art\\ A Case Stude of Escher, Bach and Fractal Geometry}
+\author{Matthew Gagnon, Jahson (Surname?), Ben Kushigian}
+\date{}
 \maketitle
 \tableofcontents
 
@@ -295,7 +295,7 @@ and second-countable. We inspect these ideas briefly.
 
 
 \begin{dfn} Let \(X,\ Y\) be topological spaces. We say that \(f: X \rightarrow
-	Y\) is \textbf{continuous} if for every \(V \subset Y\) the pre-image \(U =
+	Y\) is \textbf{continuous} if for every open \(V \subset Y\) the pre-image \(U =
 	f^{-1}(V) \subset X\) is open. We say that \(f\) is an \textbf{open map} if
 	for every open set \(U \subset X\) the image \(f(U)\) is open in \(Y\). We 
 	say that the map \(f\) is \textbf{bijective} if it is onto and into.
@@ -335,14 +335,14 @@ by him, but rather have been along for a long time.
 
     %%%%%%%%%%%%%%%%%  Subsection: Sierpinski's Gasket  %%%%%%%%%%%%%%%%%%%
 \subsection{Sierpinski's Gasket}
-\subsubsection{Wac\l{}aw Sierpi\'nski} Wac\l{}aw Sierpi\'nski, a Polish 
-mathematician, worked on set theory, number theory and topology. One of his
-first major accomplishments was to improve upon an inequality set by Gauss
-\cite{st-andrews} pertaining to a famous problem on lattice points, often
-called the `Gauss Circle Problem'. A basic statement of the problem, and a 
-summary of Sierpi\'nski's contributions, are described in the 
-\href{http://www-history.mcs.st-andrews.ac.uk/}{MacTutor History of Mathematics
-archive}.
+\subsubsection{Wac\l{}aw Sierpi\'nski} Wac\l{}aw Sierpi\'nski was a Polish
+mathematician and professor at Lvov and Warsaw. Sierpinski worked on set
+theory, number theory and topology. One of his first major accomplishments was
+to improve upon an inequality set by Gauss \cite{st-andrews} pertaining to a
+famous problem on lattice points, often called the `Gauss Circle Problem'. A
+basic statement of the problem, and a summary of Sierpi\'nski's contributions,
+are described in the \href{http://www-history.mcs.st-andrews.ac.uk/}{MacTutor
+History of Mathematics archive}.
 
 \begin{quotation}
 	Let \(R(r)\) denote the number of points \((m,n)\), with \(m,n \in \Z\),
@@ -357,7 +357,7 @@ archive}.
 Another interesting result given by Sierpinski was the first ever example of 
 a {\em regular number} - a number whose digits occur with equal frequency in
 whichever base it is written.\cite{st-andrews} In addition he studied the
-{\em Sierpinski Curve} (Figure \ref{fig:scurve}), which is a a closed path which contains every 
+{\em Sierpinski Curve} (Figure \ref{fig:scurve}), which is a closed path which contains every 
 interior point of a square. As a result it is a space filling curve and has
 a {\em Hausdorff dimension} of 2 (the same as a region of the plane).\\
 
@@ -383,7 +383,7 @@ a {\em Hausdorff dimension} of 2 (the same as a region of the plane).\\
 	\caption{Successive depths of Sierpinski's Curve}\label{fig:scurve}
 \end{figure}
 
-Of note, the Sierpinksi Curve is recursively defined. The curve itself is the
+Of note, the Sierpinski Curve is recursively defined. The curve itself is the
 {\em limit} of a process. We define \(C_1\) (Figure \ref{fig:scurve1}) and then
 \(C_{n+1}\) in terms of \(C_n\) for all \(n \geq 1\). Thus at no {\em finite}
 point do we have Sierpinski's Curve.\\
@@ -394,10 +394,10 @@ what {\em is} surprising is that the curve encloses a non-zero area, specificall
 
 \subsubsection{Generating Sierpinski's Gasket}
 Sierpinski is perhaps most famous for the triangle that takes his namesake; the
-{\em Sierpinski Triangle} (or {\em Sierpinski Gaskett}). Like the Sierpinski
+{\em Sierpinski Triangle} (or {\em Sierpinski Gasket}). Like the Sierpinski
 Curve, this is (usually) created with a recursive algorithm. We begin with a
 triangle, call it \(S_0\). Now for \(k > 0\) we work as follows: to form
-\(S_{k+1}\) from \(S_k\) inspect each of the triangles fomring \(S_k\). For
+\(S_{k+1}\) from \(S_k\) inspect each of the triangles forming \(S_k\). For
 each triangle we mark the midpoint of each of its sides. Then we connect these
 marked points with line segments, thus cutting each of \(S_k\)'s sub-triangles
 into four new triangles congruent to \(S_k\) but with dimensions halved.
@@ -440,16 +440,25 @@ leaving the lines just drawn untouched), we obtain \(S_{k+1}\).\\
 \subsection{Some Properties}
 One can ask about some of the basic properties of Sierpinski's Gasket. Firstly,
 what is its area?  In each iteration from \(S_k\) to \(S_{k+1}\) the middle of
-each unremoved triangle (colored white in \ref{fig:sierp-tri-construction}) is removed.
-Thus we compute the area of \(S_{k+1}\) as
+each unremoved triangle (colored white in \ref{fig:sierp-tri-construction}) is
+removed.  Thus we compute the area of \(S_{k+1}\) as
+
 \[\mathcal A(S_{k+1}) = \frac{3 \mathcal A(S_k)}{4},\]
+
 Assuming our original triangle \(S_0\) has unit area then we have the closed
 form equation for the area: \(\mathcal A(S_k) = \big(\frac{3}{4}\big)^k\mathcal
-A(S_0) = \big(\frac{3}{4}\big)^k\).  It is easy to see that the limit of
-the area goes to zero,
+A(S_0) = \big(\frac{3}{4}\big)^k\).  It is easy to see that the limit of the
+area goes to zero,
+
 \[\lim_{k \rightarrow \infty}\mathcal A(S_k) = 0.\]
 
-
+One might be tempted to say that Sierpinski's Triangle is the empty set, that
+is \(S_\infty = \varnothing\). This, however, would be incorrect. To show that
+this is false and that \(S_\infty\) is non-empty we need only show that there 
+is at least one point that does not get removed. In fact, we have many such
+points, three of which are the vertices of \(S_0\). Further, upon each iteration
+the vertices of all remaining triangles will remain present.
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{section}{References}
 \begin{thebibliography}{9}
@@ -467,10 +476,10 @@ the area goes to zero,
 	\textit{Wikipedia - Fractals}
 	\\\texttt{https://en.wikipedia.org/wiki/Fractal}
 \bibitem{wahl}
-	\textit{wahl.org}
+	\texttt{wahl.org}
 	\\\textit{http://benkushigian.com/misc/pdfs/defs455.pdf}
 \bibitem{st-andrews}
 	\textit{Waclaw Sierpinski}
-	\\\textit{http://www-history.mcs.st-andrews.ac.uk/Biographies/Sierpinski.html}
+	\\\texttt{http://www-history.mcs.st-andrews.ac.uk/Biographies/Sierpinski.html}
 \end{thebibliography}
 \end{document}
