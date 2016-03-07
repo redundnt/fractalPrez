@@ -1,6 +1,6 @@
 \documentclass[11pt,oneside,final]{article}
 
-\input{/home/ben/shared/latex/headings/headings.tex}
+\input{headings.tex}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage[font={small,it}]{caption}
@@ -76,7 +76,7 @@ ask what the length of the coastline is we will get differing results,
 depending on what are base unit of measurement is.\\
 
 
-\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{wrapfigure}{R}{0.35\textwidth}
 	\centering
 	\includegraphics[width=0.34\textwidth]{Britain-fractal-coastline}
 	\caption{The length of the coast of Britain with increasing precision -
@@ -164,7 +164,7 @@ original size and place them in a triangular formation. \\
 \end{wrapfigure}
 
 \begin{wrapfigure}{r}{0.25\textwidth}
-	\includegraphics[width=0.25\textwidth]{julia_triangles}
+	\includegraphics[width=0.25\textwidth]{julia_triangles_cropped}
 	\caption{The Julia Set before computer graphics, drawn in 1924 by Hubert
 	Cremer \cite{wahl}}
 \end{wrapfigure}
@@ -324,6 +324,130 @@ U, y \in V,\ U\cap V = \varnothing\).
 \end{dfn}
 
 The most 
+\section{Fractals: A Closer Look}
+Here we will flesh out some ideas mentioned above. First, we will explicitly
+construct some of our fractals and look at some of the truly bizarre
+mathematical properties they have. We begin with a family of fractals named
+after Wac\l{}aw Sierpi\'nski, though the ideas that he studied were not coined
+by him, but rather have been along for a long time.
+
+
+
+    %%%%%%%%%%%%%%%%%  Subsection: Sierpinski's Gasket  %%%%%%%%%%%%%%%%%%%
+\subsection{Sierpinski's Gasket}
+\subsubsection{Wac\l{}aw Sierpi\'nski} Wac\l{}aw Sierpi\'nski, a Polish 
+mathematician, worked on set theory, number theory and topology. One of his
+first major accomplishments was to improve upon an inequality set by Gauss
+\cite{st-andrews} pertaining to a famous problem on lattice points, often
+called the `Gauss Circle Problem'. A basic statement of the problem, and a 
+summary of Sierpi\'nski's contributions, are described in the 
+\href{http://www-history.mcs.st-andrews.ac.uk/}{MacTutor History of Mathematics
+archive}.
+
+\begin{quotation}
+	Let \(R(r)\) denote the number of points \((m,n)\), with \(m,n \in \Z\),
+	contained in a circle of radius \(r\). Then there exists a constant \(C\)
+	and a number \(k\) such that 
+	\[|R(r) - \pi r^2| < Cr^k.\] 
+	Let \(d\) be the minimal value of \(k\). Gauss had proved in 1837 that \(d
+	\leq 1\). Sierpinski's major contribution was to show that it was possible
+	to improve the inequality to \(d < 2/3\).\cite{st-andrews}
+\end{quotation}
+
+Another interesting result given by Sierpinski was the first ever example of 
+a {\em regular number} - a number whose digits occur with equal frequency in
+whichever base it is written.\cite{st-andrews} In addition he studied the
+{\em Sierpinski Curve} (Figure \ref{fig:scurve}), which is a a closed path which contains every 
+interior point of a square. As a result it is a space filling curve and has
+a {\em Hausdorff dimension} of 2 (the same as a region of the plane).\\
+
+\begin{figure}[hb]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{Sierpinski-Curve-1}
+		\caption{\(C_1\), the first step in creating the Sierpinski Curve}
+		\label{fig:scurve1}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{Sierpinski-Curve-2}
+		\caption{\(C_2\), the second step in creating the Sierpinski Curve}
+		\label{fig:scurve2}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{Sierpinski-Curve-3}
+		\caption{\(C_3\), the third step in creating the Sierpinski Curve}
+		\label{fig:scurve3}
+	\end{subfigure}
+	\caption{Successive depths of Sierpinski's Curve}\label{fig:scurve}
+\end{figure}
+
+Of note, the Sierpinksi Curve is recursively defined. The curve itself is the
+{\em limit} of a process. We define \(C_1\) (Figure \ref{fig:scurve1}) and then
+\(C_{n+1}\) in terms of \(C_n\) for all \(n \geq 1\). Thus at no {\em finite}
+point do we have Sierpinski's Curve.\\
+
+Sierpinski's Curve has infinite length, which should not be surprising. However
+what {\em is} surprising is that the curve encloses a non-zero area, specifically
+\(5/12\) of the area of the original square (CITATION NEEDED).\\
+
+\subsubsection{Generating Sierpinski's Gasket}
+Sierpinski is perhaps most famous for the triangle that takes his namesake; the
+{\em Sierpinski Triangle} (or {\em Sierpinski Gaskett}). Like the Sierpinski
+Curve, this is (usually) created with a recursive algorithm. We begin with a
+triangle, call it \(S_0\). Now for \(k > 0\) we work as follows: to form
+\(S_{k+1}\) from \(S_k\) inspect each of the triangles fomring \(S_k\). For
+each triangle we mark the midpoint of each of its sides. Then we connect these
+marked points with line segments, thus cutting each of \(S_k\)'s sub-triangles
+into four new triangles congruent to \(S_k\) but with dimensions halved.
+Removing the middle triangles (specifically the {\em interior} of the triangle,
+leaving the lines just drawn untouched), we obtain \(S_{k+1}\).\\
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{sierp3}
+		\caption{\(S_3\): the third iteration of the construction of 
+		Sierpinski's Triangle.}
+		\label{fig:sierptri3}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{sierp4}
+		\caption{\(S_4\): the fourth iteration of the construction of 
+		Sierpinski's Triangle.}
+		\label{fig:sierptri3}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{sierp5}
+		\caption{\(S_5\): the fifth iteration of the construction of 
+		Sierpinski's Triangle.}
+		\label{fig:sierptri3}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{sierp8}
+		\caption{\(S_8\): the eighth iteration of the construction of 
+		Sierpinski's Triangle.}
+		\label{fig:sierptri3}
+	\end{subfigure}
+	\caption{Construction of Sierpinski's Triangle. Generated using C++ and
+	OpenGL}\label{fig:sierp-tri-construction}
+\end{figure}
+
+\subsection{Some Properties}
+One can ask about some of the basic properties of Sierpinski's Gasket. Firstly,
+what is its area?  In each iteration from \(S_k\) to \(S_{k+1}\) the middle of
+each unremoved triangle (colored white in \ref{fig:sierp-tri-construction}) is removed.
+Thus we compute the area of \(S_{k+1}\) as
+\[\mathcal A(S_{k+1}) = \frac{3 \mathcal A(S_k)}{4},\]
+Assuming our original triangle \(S_0\) has unit area then we have the closed
+form equation for the area: \(\mathcal A(S_k) = \big(\frac{3}{4}\big)^k\mathcal
+A(S_0) = \big(\frac{3}{4}\big)^k\).  It is easy to see that the limit of
+the area goes to zero,
+\[\lim_{k \rightarrow \infty}\mathcal A(S_k) = 0.\]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -345,5 +469,8 @@ The most
 \bibitem{wahl}
 	\textit{wahl.org}
 	\\\textit{http://benkushigian.com/misc/pdfs/defs455.pdf}
+\bibitem{st-andrews}
+	\textit{Waclaw Sierpinski}
+	\\\textit{http://www-history.mcs.st-andrews.ac.uk/Biographies/Sierpinski.html}
 \end{thebibliography}
 \end{document}

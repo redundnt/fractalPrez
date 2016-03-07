@@ -1,0 +1,156 @@
+\usepackage{mathtools}
+\usepackage{accents}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{centernot}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+%PAGE FORMATTING
+% \addtolength{\voffset}{-.4in}
+% \addtolength{\hoffset}{0in}
+% \addtolength{\footskip}{5pt}
+% \addtolength{\textheight}{100pt}
+\addtolength{\textwidth}{-20pt}
+%% Shortcuts
+\def\R{\mathbb R}
+\def\RS{\mathbb S}
+\def\Z{\mathbb Z}
+\def\Q{\mathbb Q}
+\def\C{\mathbb C}
+
+%THEOREMS
+\theoremstyle{definition}
+\newtheorem{prb}{Problem}
+\newtheorem*{prob}{\textbf{Problem :}}
+\newtheorem*{prf}{Proof}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{sln}{Solution}
+\newtheorem*{fct}{Fact}
+\newtheorem*{dfn}{Definition}
+\newtheorem*{dfns}{Definitions}
+\theoremstyle{theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{thm}{Theorem}
+\newcommand{\irr}{\text{irr}}
+\newcommand{\ol}[1]{\overline{#1}}
+%NEW COMMANDS
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\bbm}[1]{\mathbbm{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\includecode}[2][Python]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}}
+\newcommand{\embf}[1]{\textbf{\emph{#1}}}
+\newcommand{\tbf}[1]{\textbf{#1}}
+	% TOPOLOGY COMMANDS
+\newcommand{\intr}[1]{\accentset{\circ}{#1}}
+\newcommand{\bndr}{\partial}
+\newcommand{\clsr}[1]{\overline{#1}}
+\newcommand{\tpl}[1][]{\mathscr{T}_{#1}}
+	% COMPLEX VARIABLE COMMANDS
+\newcommand{\Log}{\text{Log}}
+\newcommand{\partials}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\hessian}[3]{\left(\begin{array}{cc}\frac{\partial^2 #1}{\partial #2^2} & \frac{\partial^2 #1}{\partial #1 \partial #2} \\ \frac{\partial^2 u}{\partial #1\partial #2} & \frac{\partial^2 #1}{\partial #2^2}\end{array}\right)}
+\newcommand{\Res}{\text{Res}}
+%LISTING
+
+\definecolor{mygreen}{rgb}{0,0.3,0.1}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{purple}{rgb}{0.78,0,0.82}
+\definecolor{TEAL}{rgb}{0.2, 0.32, 0.5}
+\definecolor{MAROON}{rgb}{0.55,0.051,0.12}
+\definecolor{BEIGE}{rgb}{0.8,0.90,0.5}
+\definecolor{AQUA}{rgb}{0.0, 0.8, 0.8}
+\definecolor{GRAY90}{gray}{0.95}
+\definecolor{GRAY80}{gray}{0.85}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\itshape\color{mygreen},
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=double,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\bfseries\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  otherkeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=8pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{black}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 4 spaces
+  title=none                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% LISTING STYLES
+% customPython
+\lstdefinestyle{customPython}{
+  backgroundcolor=\color{BEIGE},
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=lines,
+  numbers=left,
+  xleftmargin=\parindent,
+  language=Python,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\ttfamily\color{blue},
+  commentstyle=\ttfamily\color{mygreen},
+  identifierstyle=\color{TEAL},
+  stringstyle=\color{MAROON},
+  caption=
+}
+\lstdefinestyle{customPythonSnippit}{
+  backgroundcolor=\color{BEIGE},
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=none,
+  %xleftmargin=\parindent,
+  language=Python,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\ttfamily\color{blue},
+  commentstyle=\ttfamily\color{mygreen},
+  identifierstyle=\color{TEAL},
+  stringstyle=\color{MAROON},
+  numbers=none,
+  caption=
+}
+% customBash
+\lstdefinestyle{customBash}{
+  backgroundcolor=\color{BEIGE},
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=lines,
+  xleftmargin=\parindent,
+  language=Bash,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\ttfamily\color{blue},
+  commentstyle=\ttfamily\color{mygreen},
+  identifierstyle=\color{blue},
+  stringstyle=\color{blue},
+  caption=
+}
+% href setup
+\hypersetup{pdfborder={0 0 0}, urlcolor=blue, linkcolor=blue, colorlinks=true}
